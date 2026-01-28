@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<style>
+    body{
+        background-color:black;
+    }
+    .text{
+        color:white;
+    }
+    .text1{
+        color:black;
+        font-size:14px;
+    }
+    .card{
+        height:100%;
+        border-radius:10px;
+    }
+    .card img{
+        height:250px;
+        object-fit:cover;
+        border-radius:10px;
+    }
+</style>
+
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background-color:#00a65a">
+    <div class="container">
+        <a class="navbar-brand text-white">My Book Recommender</a>
+        <ul class="navbar-nav ms-auto d-flex gap-4">
+            <li><a href="#">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text mb-4">Top 50 Books</h1>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for i in range(book_name|length) %}
+        <div class="col">
+            <div class="card shadow">
+                <img src="{{ image[i] }}" class="card-img-top">
+                <div class="card-body">
+                    <p class="fw-bold text1">{{ book_name[i] }}</p>
+                    <p class="text1">Author: {{ author[i] }}</p>
+                    <p class="text1">Votes: {{ votes[i] }}</p>
+                    <p class="text1">Rating: {{ rating[i] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
